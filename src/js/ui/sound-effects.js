@@ -1,7 +1,7 @@
 const SOUND_EFFECTS = {
-    play: new Audio("/sounds/play.wav"),
-    pause: new Audio("/sounds/pause.mp3"),
-    beep: new Audio("/sounds/beep.mp3"),
+    play: new Audio("./sounds/play.wav"),
+    pause: new Audio("./sounds/pause.mp3"),
+    beep: new Audio("./sounds/beep.mp3"),
 };
 
 // ajuda a “reiniciar” o som se clicar rápido várias vezes

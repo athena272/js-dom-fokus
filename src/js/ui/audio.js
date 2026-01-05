@@ -1,6 +1,6 @@
 import { SELECTORS, qs } from "./dom.js";
 
-const MUSIC_SRC = "/sounds/luna-rise-part-one.mp3";
+const MUSIC_SRC = "./sounds/luna-rise-part-one.mp3";
 
 export function setupFocusMusic()
 {
