@@ -1,17 +1,17 @@
 import { SELECTORS, qs } from "./dom.js";
 import { playSoundEffects } from "./sound-effects.js";
 
-const DEFAULT_DURATIONS = {
-    focus: 5,
-    "short-break": 3,
-    "long-break": 2,
-};
-
 // const DEFAULT_DURATIONS = {
-//     focus: 25 * 60,
-//     "short-break": 5 * 60,
-//     "long-break": 15 * 60,
+//     focus: 5,
+//     "short-break": 3,
+//     "long-break": 2,
 // };
+
+const DEFAULT_DURATIONS = {
+    focus: 25 * 60,
+    "short-break": 5 * 60,
+    "long-break": 15 * 60,
+};
 
 function formatTime(totalSeconds)
 {
