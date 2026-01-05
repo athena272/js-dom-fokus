@@ -1,24 +1,59 @@
 import { setupFocusMusic } from "./ui/audio.js";
 import { applyContext, getContextFromEvent, getInitialContext } from "./ui/context.js";
 import { SELECTORS, qs } from "./ui/dom.js";
+import { createTimer } from "./ui/timer.js";
 
-function onClick(event)
+function updateStartPause(timer)
 {
-    const context = getContextFromEvent(event);
-    if (!context) return;
+    const icon = qs(SELECTORS.startPauseIcon);
+    const text = qs(SELECTORS.startPauseText);
 
-    applyContext(context);
+    if (timer.isRunning())
+    {
+        icon.src = "/images/pause.png";
+        text.textContent = "Pausar";
+    } else
+    {
+        icon.src = "/images/play_arrow.png";
+        text.textContent = "Começar";
+    }
 }
 
 function init()
 {
-    const card = qs(SELECTORS.card);
-    card.addEventListener('click', onClick);
+    // Music
+    setupFocusMusic();
 
+    // Timer
+    const timer = createTimer({
+        onFinish: () =>
+        {
+            alert('Times up!');
+        }
+    });
+
+    // Initial state
     const initialContext = getInitialContext();
     applyContext(initialContext);
+    timer.setMode(initialContext);
 
-    setupFocusMusic();
+    // delegation card
+    const card = qs(SELECTORS.card);
+    card.addEventListener('click', (event) =>
+    {
+        const context = getContextFromEvent(event);
+        if (!context) return;
+
+        applyContext(context);
+        timer.setMode(context);
+    });
+
+    const startPauseBtn = qs(SELECTORS.startPauseButton);
+    startPauseBtn.addEventListener('click', () =>
+    {
+        timer.toggle();
+        updateStartPause(timer);
+    });
 }
 
 init();
