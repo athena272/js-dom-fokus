@@ -2,6 +2,7 @@ import { setupFocusMusic } from "./ui/audio.js";
 import { applyContext, getContextFromEvent, getInitialContext } from "./ui/context.js";
 import { SELECTORS, qs } from "./ui/dom.js";
 import { createTimer } from "./ui/timer.js";
+import { setupTasks } from "./ui/tasks/controller.js";
 
 function updateStartPause(timer)
 {
@@ -23,6 +24,9 @@ function init()
 {
     // Music
     setupFocusMusic();
+
+    // Tasks
+    setupTasks();
 
     // Timer
     const timer = createTimer({

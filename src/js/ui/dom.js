@@ -9,6 +9,15 @@ export const SELECTORS = {
     startPauseButton: "#start-pause",
     startPauseIcon: "#start-pause img",
     startPauseText: "#start-pause span",
+    taskList: ".app__section-task-list",
+    addTaskButton: ".app__button--add-task",
+    taskForm: ".app__form-add-task",
+    taskTextarea: ".app__form-textarea",
+    activeTaskDescription: ".app__section-active-task-description",
+    removeDoneButton: "#btn-remover-concluidas",
+    removeAllButton: "#btn-remover-todas",
+    formCancelButton: ".app__form-footer__button--cancel",
+    formDeleteButton: ".app__form-footer__button--delete",
 };
 
 export function qs(selector, scope = document)
